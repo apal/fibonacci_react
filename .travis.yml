@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true ankurpal80/fibonacci-react npm run test
 
 after_success:
-  - docker build -t ankurpal80/fiboncacci-client ./client
-  - docker build -t ankurpal80/fiboncacci-nginx ./nginx
-  - docker build -t ankurpal80/fiboncacci-server ./server
-  - docker build -t ankurpal80/fiboncacci-worker ./worker
+  - docker build -t ankurpal80/fibonacci-client ./client
+  - docker build -t ankurpal80/fibonacci-nginx ./nginx
+  - docker build -t ankurpal80/fibonacci-server ./server
+  - docker build -t ankurpal80/fibonacci-worker ./worker
   #login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push them to docker hub.
-  - docker push ankurpal80/fiboncacci-client
-  - docker push ankurpal80/fiboncacci-nginx
-  - docker push ankurpal80/fiboncacci-server
-  - docker push ankurpal80/fiboncacci-worker
+  - docker push ankurpal80/fibonacci-client
+  - docker push ankurpal80/fibonacci-nginx
+  - docker push ankurpal80/fibonacci-server
+  - docker push ankurpal80/fibonacci-worker
